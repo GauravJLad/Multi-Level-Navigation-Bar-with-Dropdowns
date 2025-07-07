@@ -1,0 +1,108 @@
+/* RESET & BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fdf4ff;
+}
+
+/* NAV BAR */
+ul {
+  list-style: none;
+  background-color: #ff6b6b; /* Coral */
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  position: relative;
+  display: inline-block;
+}
+
+ul li a {
+  display: block;
+  padding: 14px 20px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+}
+
+ul li:hover > a {
+  background-color: #ff8787;
+}
+
+/* FIRST-LEVEL DROPDOWN */
+ul li ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #6c5ce7;
+  display: none;
+  min-width: 160px;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+ul li:hover > ul {
+  display: block;
+}
+
+ul li ul li {
+  display: block;
+}
+
+ul li ul li a {
+  background-color: #6c5ce7;
+  color: #fff;
+  padding: 12px 16px;
+}
+
+ul li ul li:hover > a {
+  background-color: #a29bfe; /* Hover on submenu */
+}
+
+/* SECOND-LEVEL DROPDOWN */
+ul li ul li ul {
+  top: 0;
+  left: 100%;
+  border-radius: 0 8px 8px 0;
+  display: none;
+}
+
+ul li ul li:hover > ul {
+  display: block;
+}
+
+ul li ul li ul li a {
+  background-color: #00b894;
+}
+
+ul li ul li ul li:hover > a {
+  background-color: #55efc4;
+}
+
+/* ADD ARROWS USING ::after */
+ul li > a::after {
+  content: "";
+}
+
+/* for 1st-level dropdowns */
+ul li:has(ul) > a::after {
+  content: " ▼";
+  font-size: 0.8rem;
+}
+
+/* for nested dropdowns */
+ul li ul li:has(ul) > a::after {
+  content: " ▶";
+  float: right;
+  margin-left: 8px;
+  font-size: 0.8rem;
+}
